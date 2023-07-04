@@ -28,6 +28,7 @@ node {
         stage('Test') { 
             echo "Testing with Scripted Pipeline"
             sh './jenkins/scripts/test.sh' 
+            echo "Testing Finished"
         }
     }
 }
