@@ -23,7 +23,9 @@ pipeline {
             steps {
                 sh './jenkins/scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sleep(60)
+                sh 'echo "React app shutting down"'
+                sh 'sleep 1m'
+                sh 'echo "React app shutted down"'
                 sh './jenkins/scripts/kill.sh'
             }
         }
