@@ -24,7 +24,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh './jenkins/scripts/deliver.sh'
-                sh 'echo "React-app is shutting down"'
+                echo "React-app is shutting down in 1 minutes"
                 sleep(time: 1, unit: 'MINUTES')
                 sh './jenkins/scripts/kill.sh'
             }
