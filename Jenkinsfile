@@ -18,9 +18,8 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
-                input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh 'echo "shutting down"'
+                sh './jenkins/scripts/deliver.sh'
+                sh 'echo "React-app is shutting down"'
                 sleep(time: 1, unit: 'MINUTES')
                 sh './jenkins/scripts/kill.sh'
             }
