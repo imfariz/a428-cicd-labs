@@ -44,17 +44,13 @@ node {
             echo "Testing Finished"
         }
         stage('Manual Approval') {
-            steps {
-                input message: 'Lanjutkan ke tahap Deploy?'
-            }
+            input message: 'Lanjutkan ke tahap Deploy?'
         }
         stage('Deploy') { 
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-                echo "React-app is shutting down in 1 minutes"
-                sleep(time: 1, unit: 'MINUTES')
-                sh './jenkins/scripts/kill.sh'
-            }
+            sh './jenkins/scripts/deliver.sh'
+            echo "React-app is shutting down in 1 minutes"
+            sleep(time: 1, unit: 'MINUTES')
+            sh './jenkins/scripts/kill.sh'
         }
     }
 }
